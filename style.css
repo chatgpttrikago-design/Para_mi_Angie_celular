@@ -1,60 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Quicksand:wght@300;500&display=swap');
-
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #fdfcfb 0%, #e2d1f9 100%);
   font-family: 'Playfair Display', serif;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
-/* ---------------- CARD ---------------- */
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #fdfcfb 0%, #e2d1f9 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: opacity 1s ease;
+}
 
-.card {
-  width: 900px;
-  max-width: 95%;
-  min-height: 580px;
-  background: radial-gradient(circle at top right, rgba(243,231,255,0.5), #fff);
+.intro-box {
+  background: white;
+  padding: 30px;
   border-radius: 30px;
-  padding: 50px;
+  text-align: center;
+  max-width: 350px;
+  box-shadow: 0 15px 35px rgba(123,31,162,.15);
+}
+
+.intro-title {
+  color: #6a1b9a;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.intro-buttons {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-shadow: 0 20px 50px rgba(123,31,162,0.15);
-  position: relative;
+  gap: 15px;
+}
+
+.intro-buttons button {
+  padding: 15px;
+  border-radius: 50px;
+  font-family: 'Quicksand';
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-si { background: #7b1fa2; color: white; border: none; }
+.btn-paso { background: #f3e5f5; color: #7b1fa2; border: 1px solid #7b1fa2; }
+
+/* CARTA */
+.card {
+  width: 90%;
+  max-width: 400px;
+  min-height: 580px;
+  background: white;
+  border-radius: 30px;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(123,31,162,.2);
   opacity: 0;
-  transform: scale(0.9);
-  transition: all 1s ease;
+  transform: translateY(30px);
+  transition: 1s;
 }
 
 .card.show {
   opacity: 1;
-  transform: scale(1);
-}
-
-.text {
-  width: 100%;
-  text-align: center;
+  transform: translateY(0);
 }
 
 .title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 55px;
+  font-family: 'Great Vibes';
+  font-size: 45px;
   color: #6a1b9a;
-  margin-bottom: 25px;
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 1.2s ease;
-  margin-bottom: 18px;
-  font-size: 19px;
-  line-height: 1.6;
-  color: #4a148c;
+  transition: 1.2s;
 }
 
 .reveal.visible {
@@ -63,87 +92,74 @@ body {
 }
 
 .final-heart {
-  font-size: 65px;
-  animation: heartBeat 1.2s infinite;
-  margin-top: 10px;
+  font-size: 50px;
+  animation: beat 1.2s infinite;
 }
 
-@keyframes heartBeat {
-  0% { transform: scale(1); }
-  15% { transform: scale(1.3); }
-  30% { transform: scale(1.1); }
-  45% { transform: scale(1.4); }
-  100% { transform: scale(1); }
+@keyframes beat {
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.4)}
 }
 
-/* ---------------- CORAZÓN DE PÉTALOS ---------------- */
+/* CORAZÓN DE PÉTALOS */
+.romance-container {
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .flower-heart {
   position: relative;
-  width: 300px;
-  height: 300px;
-  margin: 20px auto 0 auto;
+  width: 150px;
+  height: 150px;
 }
 
 .petal {
   position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: 50% 0 50% 50%;
-  opacity: 0;
-  animation: magicExplosion 3s infinite ease-out;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: explode 3s infinite;
 }
 
-@keyframes magicExplosion {
-  0% { transform: translate(0,0) scale(0); opacity: 0; }
-  10% { opacity: 1; transform: scale(1.2); }
-  100% {
-    transform: translate(var(--tx), var(--ty)) scale(0.5);
-    opacity: 0;
-  }
+@keyframes explode {
+  0% {opacity:0; transform:scale(0)}
+  20% {opacity:1}
+  100% {transform:translate(var(--tx),var(--ty)) scale(.4); opacity:0}
 }
 
-/* ---------------- CONTADOR ---------------- */
-
+/* CONTADOR */
 .counter-container {
-  margin-top: 25px;
-  text-align: center;
+  margin-top: 10px;
+}
+
+.label {
+  font-family: 'Quicksand';
+  font-size: 12px;
+  color: #9c27b0;
 }
 
 .counter {
-  font-size: 22px;
+  font-family: 'Quicksand';
+  font-size: 18px;
   font-weight: 600;
   color: #7b1fa2;
 }
 
-/* ---------------- RESPONSIVE CELULAR ---------------- */
+/* MODAL PASO */
+.paso-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
 
-@media (max-width: 768px) {
-
-  .card {
-    padding: 25px;
-    min-height: auto;
-  }
-
-  .title {
-    font-size: 38px;
-  }
-
-  .reveal {
-    font-size: 16px;
-  }
-
-  .final-heart {
-    font-size: 50px;
-  }
-
-  .flower-heart {
-    width: 220px;
-    height: 220px;
-  }
-
-  .counter {
-    font-size: 18px;
-  }
+.paso-content {
+  font-size: 22px;
+  color: #4a148c;
 }
 
