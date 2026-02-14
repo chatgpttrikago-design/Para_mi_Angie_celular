@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Angie 💜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Audio de fondo en bucle -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <!-- Overlay inicial -->
+  <div id="overlay" class="overlay">
+    <div class="intro-box">
+      <h1 class="intro-title">¿Quieres ser mi San Valentín, mi hermosa Angie?</h1>
+      <div class="intro-buttons">
+        <button onclick="startExperience('si')" class="btn-si">SÍ</button>
+        <button onclick="startExperience('paso')" class="btn-paso">PASOOOO</button>
+      </div>
+      <p style="margin-top:15px; font-size:14px; color:#7b1fa2;">
+        ✨ Toca la pantalla para empezar ✨
+      </p>
+    </div>
+  </div>
+
+  <!-- Modal de "Paso" -->
+  <div id="paso-modal" class="paso-modal">
+    <div class="paso-content">
+      <p>Sabía que presionarías eso... y aun así te amo. ❤️</p>
+    </div>
+  </div>
+
+  <!-- Carta principal -->
+  <div class="card">
+    <div class="text" id="text-container">
+      <h2 class="title">Mi hermosa Angie 💜</h2>
+      <p class="reveal">No hay límites para expresar mi amor por ti mi vida, ni la distancia ni las tormentas son límites para cruzar fronteras mi corazón.</p>
+      <p class="reveal">Para mi hermosa Angie de su loco fan enamorado.</p>
+      <p class="reveal">Hasta el infinito y más allá mi amor, mi mucho mucho.</p>
+      <p class="reveal">Esto es solo el comienzo de muchas sorpresas mi corazón, te amo mi vida.</p>
+      <div class="final-heart reveal">❤️</div>
+    </div>
+
+    <div class="romance-container">
+      <div class="flower-heart" id="flower-heart"></div>
+    </div>
+
+    <div class="counter-container">
+      <span class="label">Nuestro amor comenzó hace:</span>
+      <div class="counter" id="counter"></div>
+    </div>
+  </div>
+
+  <!-- SOLO este JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
