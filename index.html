@@ -8,53 +8,44 @@
 </head>
 <body>
 
-  <!-- Audio de fondo en bucle -->
-  <audio id="bgMusic" loop preload="auto">
-    <source src="musica.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
+<audio id="bgMusic" loop preload="auto">
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Overlay inicial -->
-  <div id="overlay" class="overlay">
-    <div class="intro-box">
-      <h1 class="intro-title">¿Quieres ser mi San Valentín, mi hermosa Angie?</h1>
-      <div class="intro-buttons">
-        <button onclick="startExperience('si')" class="btn-si">SÍ</button>
-        <button onclick="startExperience('paso')" class="btn-paso">PASOOOO</button>
-      </div>
+<div id="overlay" class="overlay">
+  <div class="intro-box">
+    <h1 class="intro-title">¿Quieres ser mi San Valentín, mi hermosa Angie?</h1>
+    <div class="intro-buttons">
+      <button onclick="startExperience('si')" class="btn-si">SÍ</button>
+      <button onclick="startExperience('paso')" class="btn-paso">PASOOOO</button>
     </div>
   </div>
+</div>
 
-  <!-- Modal de "Paso" -->
-  <div id="paso-modal" class="paso-modal">
-    <div class="paso-content">
-      <p>Sabía que presionarías eso... y aun así te amo. ❤️</p>
-    </div>
+<div id="paso-modal" class="paso-modal">
+  <div class="paso-content">Sabía que presionarías eso...y aun así te amo ❤️</div>
+</div>
+
+<div class="card">
+  <div class="text">
+    <h2 class="title">Mi hermosa Angie 💜</h2>
+    <p class="reveal">No hay límites para expresar mi amor por ti mi vida, ni la distancia ni las tormentas son límites para cruzar fronteras mi corazón.</p>
+    <p class="reveal">Para mi hermosa Angie de su loco fan enamorado.</p>
+    <p class="reveal">Las sorpresas recién empiezan amor...</p>
+    <div class="final-heart reveal">❤️</div>
   </div>
 
-  <!-- Carta principal -->
-  <div class="card">
-    <div class="text" id="text-container">
-      <h2 class="title">Mi hermosa Angie 💜</h2>
-      <p class="reveal">No hay límites para expresar mi amor por ti mi vida, ni la distancia ni las tormentas son límites para cruzar fronteras mi corazón.</p>
-      <p class="reveal">Para mi hermosa Angie de su loco fan enamorado.</p>
-      <p class="reveal">Las sorpresas recién empiezan amor...</p>
-      <div class="final-heart reveal">❤️</div>
-    </div>
-
-    <div class="romance-container">
-      <div class="flower-heart" id="flower-heart"></div>
-    </div>
-
-    <div class="counter-container">
-      <span class="label">Nuestro amor comenzó hace:</span>
-      <div class="counter" id="counter"></div>
-    </div>
+  <div class="romance-container">
+    <div id="flower-heart" class="flower-heart"></div>
   </div>
 
-  <!-- SOLO este JS -->
-  <script src="script.js"></script>
+  <div class="counter-container">
+    <span class="label">Nuestro amor comenzó hace:</span>
+    <div id="counter" class="counter"></div>
+  </div>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
 
