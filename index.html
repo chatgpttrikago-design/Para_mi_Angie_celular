@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Para Angie 💜</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
-
-<audio id="bgMusic" loop preload="auto">
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
 
 <div id="overlay" class="overlay">
   <div class="intro-box">
@@ -23,29 +11,30 @@
 </div>
 
 <div id="paso-modal" class="paso-modal">
-  <div class="paso-content">Sabía que presionarías eso...y aun así te amo ❤️</div>
+  <div class="paso-content">
+    <p>Sabía que presionarías eso... y aun así te amo. ❤️</p>
+  </div>
 </div>
 
 <div class="card">
-  <div class="text">
+  <div class="text" id="text-container">
     <h2 class="title">Mi hermosa Angie 💜</h2>
+
     <p class="reveal">No hay límites para expresar mi amor por ti mi vida, ni la distancia ni las tormentas son límites para cruzar fronteras mi corazón.</p>
     <p class="reveal">Para mi hermosa Angie de su loco fan enamorado.</p>
     <p class="reveal">Las sorpresas recién empiezan amor...</p>
+  
     <div class="final-heart reveal">❤️</div>
-  </div>
 
-  <div class="romance-container">
-    <div id="flower-heart" class="flower-heart"></div>
+    <!-- Corazón de pétalos AHORA debajo -->
+    <div class="flower-heart" id="flower-heart"></div>
   </div>
 
   <div class="counter-container">
     <span class="label">Nuestro amor comenzó hace:</span>
-    <div id="counter" class="counter"></div>
+    <div class="counter" id="counter"></div>
   </div>
 </div>
 
 <script src="script.js"></script>
 </body>
-</html>
-
