@@ -31,42 +31,39 @@ let counterIntervalId = null;
 //  Función para iniciar la experiencia
 // ===============================
 function startExperience(choice) {
-  // Evita que se re-inicie todo si vuelven a tocar botones por error
-  if (experienceStarted) return;
-  experienceStarted = true;
+  const overlay = document.getElementById('overlay');
+  const card = document.querySelector('.card');
+  const music = document.getElementById('bgMusic');
 
-  // Intenta iniciar música (por si el primer click fue el botón)
-  tryPlayMusic();
+  if (choice === 'si') {
+    overlay.style.opacity = '0';
 
-  const overlay = document.getElementById("overlay");
-  const card = document.querySelector(".card");
-
-  if (choice === "si") {
-    overlay.style.opacity = "0";
     setTimeout(() => {
-      overlay.style.display = "none";
-      card.classList.add("show");
+      overlay.style.display = 'none';
+      card.classList.add('show');
+      music.play().catch(() => {}); // autoplay seguro en móvil
       initAnimations();
-    }, 1000);
+    }, 800);
+
   } else {
-    const pasoModal = document.getElementById("paso-modal");
-    pasoModal.style.display = "flex";
-    pasoModal.style.opacity = "1";
+    const pasoModal = document.getElementById('paso-modal');
+    pasoModal.style.display = 'flex';
 
     setTimeout(() => {
-      pasoModal.style.opacity = "0";
+      pasoModal.style.display = 'none';
+      overlay.style.opacity = '0';
+
       setTimeout(() => {
-        pasoModal.style.display = "none";
-        overlay.style.opacity = "0";
-        setTimeout(() => {
-          overlay.style.display = "none";
-          card.classList.add("show");
-          initAnimations();
-        }, 1000);
-      }, 1000);
-    }, 3000);
+        overlay.style.display = 'none';
+        card.classList.add('show');
+        music.play().catch(() => {});
+        initAnimations();
+      }, 800);
+
+    }, 2500);
   }
 }
+
 
 // ===============================
 //  Inicia animaciones (solo cuando empieza)
@@ -197,3 +194,4 @@ function updateCounter() {
     counterEl.innerHTML = `${d} días, ${h}h ${m}m ${s}s`;
   }
 }
+
