@@ -2,45 +2,35 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <title>Para Angie 💜</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para mi hermosa Angie 💜</title>
-
-  <!-- FUENTES -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Quicksand:wght@300;500;600&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 🎵 AUDIO -->
   <audio id="bgMusic" loop preload="auto">
     <source src="musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
   </audio>
 
-  <!-- OVERLAY -->
   <div id="overlay" class="overlay">
     <div class="intro-box">
       <h1 class="intro-title">¿Quieres ser mi San Valentín, mi hermosa Angie?</h1>
       <div class="intro-buttons">
-        <button class="btn-si" onclick="startExperience('si')">SÍ</button>
-        <button class="btn-paso" onclick="startExperience('paso')">PASOOOO</button>
+        <button onclick="startExperience('si')" class="btn-si">SÍ</button>
+        <button onclick="startExperience('paso')" class="btn-paso">PASOOOO</button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL PASO -->
   <div id="paso-modal" class="paso-modal">
     <div class="paso-content">
-      Sabía que presionarías eso... y aun así te amo ❤️
+      <p>Sabía que presionarías eso... y aun así te amo. ❤️</p>
     </div>
   </div>
 
-  <!-- CARTA -->
   <div class="card">
-    <div class="text">
+    <div class="text" id="text-container">
       <h2 class="title">Mi hermosa Angie 💜</h2>
       <p class="reveal">No hay límites para expresar mi amor por ti mi vida, ni la distancia ni las tormentas son límites para cruzar fronteras mi corazón.</p>
       <p class="reveal">Para mi hermosa Angie de su loco fan enamorado.</p>
@@ -58,7 +48,6 @@
     </div>
   </div>
 
-  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
