@@ -100,18 +100,42 @@ function updateCounter() {
 
 function createButterfly() {
   const b = document.createElement("div");
-  b.style.position = "fixed";
-  b.innerHTML = "🦋";
-  b.style.fontSize = "24px";
-  b.style.left = "-50px";
-  b.style.top = (Math.random() * 80 + 10) + "%";
-  b.style.zIndex = "100";
+  b.className = "butterfly";
+
+  // Insertamos la estructura idéntica a la versión de PC
+  b.innerHTML = `
+    <div class="butterfly-body">
+      <div class="antenna left"></div>
+      <div class="antenna right"></div>
+    </div>
+    <div class="wing-pair left-side">
+      <div class="wing top"></div>
+      <div class="wing bottom"></div>
+    </div>
+    <div class="wing-pair right-side">
+      <div class="wing top"></div>
+      <div class="wing bottom"></div>
+    </div>
+  `;
+
+  // Posicionamiento inicial
+  b.style.top = (Math.random() * 70 + 10) + "%";
+  b.style.left = "-80px";
   document.body.appendChild(b);
 
-  b.animate([
-    { left: "-50px", transform: "rotate(0deg)" },
-    { left: "110vw", transform: "rotate(20deg)" }
-  ], { duration: 10000 + Math.random() * 5000 });
+  const randomY = Math.random() * 200 - 100;
 
-  setTimeout(() => b.remove(), 15000);
+  // Animación de vuelo a través de la pantalla
+  const anim = b.animate(
+    [
+      { left: "-80px", transform: "translateY(0) scale(0.7)" },
+      { left: "110vw", transform: `translateY(${randomY}px) scale(0.7)` }
+    ],
+    {
+      duration: 12000 + Math.random() * 4000,
+      easing: "linear"
+    }
+  );
+
+  anim.onfinish = () => b.remove();
 }
